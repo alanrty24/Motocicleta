@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+
+  /* * Variables */
+  --brown: #443434;
+  --grey: #9f9f9f;
+  --orange: #fd6402;
+  --grey-semiclaro: #e9e6df;
+  --grey-claro: #f6f5f0;
+  --white: #fff;
+  --black: #0000002b;
+  --brown-claro: #443434;
+  --border: solid 0.1rem var(--black);
+}
+
+body {
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 10vh 60vh 12vh 45vh 100vh 10vh;
+  grid-template-areas:
+    "navbar"
+    "head"
+    "menu"
+    "article"
+    "main"
+    "footer";
+  overflow-x: hidden;
+}
+
+/* todo: NAVBAR */
+.navbar {
+  grid-area: navbar;
+  width: 100%;
+  background-color: var(--brown);
+  display: flex;
+  justify-content: space-between;
+  padding-left: 3rem;
+}
+
+/* ! Contenedor del logo */
+.navbar .contlogo {
+  width: 30%;
+  padding-block: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white);
+}
+
+/* * Titulo */
+.navbar .title {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ! Contenedor de la navbar */
+.navbar .list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 3rem;
+    /* gap: .5rem; */
+    list-style: none;
+    font-size: .7rem;
+}
+
+/* * items */
+.navbar .list .item{
+   height: 100%;
+   display: flex;
+   align-items: center;
+   border-left: solid .12rem var(--black);
+   padding: 1rem;
+   
+}
+
+/* * Ultimo hijo */
+.navbar .list .item:last-child{
+    border-right: solid .1rem var(--black);
+ }
+ 
+/* * links */
+.navbar .list .item .link{
+    text-decoration: none;
+    color: var(--white);
+}
+
+/* todo: HEAD */
+.head {
+  grid-area: head;
+  width: 100%;
+  background-color: var(--grey);
+}
+/* todo: MENU */
+.menu {
+  grid-area: menu;
+  width: 100%;
+  background-color: var(--brown);
+}
+/* todo: ARTICLE */
+.article {
+  grid-area: article;
+  width: 100%;
+  background-color: var(--grey-semiclaro);
+}
+/* todo: MAIN */
+.main {
+  grid-area: main;
+  width: 100%;
+  background-color: var(--grey-claro);
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 100%;
+}
+
+/* todo: MAIN SIDEBAR */
+.main .sidebar {
+  width: 100%;
+  border-right: var(--border);
+}
+
+/* todo: MAIN CARDS */
+.main .cards {
+  width: 100%;
+}
+
+/* todo: FOOTER */
+.footer {
+  grid-area: footer;
+  width: 100%;
+  background-color: var(--brown);
+}
