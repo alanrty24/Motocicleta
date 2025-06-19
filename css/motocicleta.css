@@ -21,7 +21,7 @@
 body {
   width: 100vw;
   display: grid;
-  grid-template-rows: 10vh 60vh 12vh 45vh 100vh 10vh;
+  grid-template-rows: 10vh 70vh 12vh 45vh 200vh 10vh;
   grid-template-areas:
     "navbar"
     "head"
@@ -36,10 +36,13 @@ body {
 .navbar {
   grid-area: navbar;
   width: 100%;
+  height: 10vh;
   background-color: var(--brown);
   display: flex;
   justify-content: space-between;
-  padding-left: 3rem;
+  padding-inline: 3rem;
+  position: fixed;
+  z-index: 100;
 }
 
 /* ! Contenedor del logo */
@@ -60,56 +63,256 @@ body {
 
 /* ! Contenedor de la navbar */
 .navbar .list {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    padding-right: 3rem;
-    /* gap: .5rem; */
-    list-style: none;
-    font-size: .7rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  /* gap: .5rem; */
+  list-style: none;
+  font-size: 0.7rem;
 }
 
 /* * items */
-.navbar .list .item{
-   height: 100%;
-   display: flex;
-   align-items: center;
-   border-left: solid .12rem var(--black);
-   padding: 1rem;
-   
+.navbar .list .item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-left: solid 0.12rem var(--black);
+  padding: 1rem;
 }
 
 /* * Ultimo hijo */
-.navbar .list .item:last-child{
-    border-right: solid .1rem var(--black);
- }
- 
+.navbar .list .item:last-child {
+  border-right: solid 0.1rem var(--black);
+}
+
 /* * links */
-.navbar .list .item .link{
-    text-decoration: none;
-    color: var(--white);
+.navbar .list .item .link {
+  text-decoration: none;
+  color: var(--white);
 }
 
 /* todo: HEAD */
 .head {
   grid-area: head;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--grey);
+  padding: 1rem 3rem;
 }
+
+/* !: contenedor de CONTIMG */
+.head .contimg {
+  height: 100%;
+  width: 100%;
+  background-color: var(--brown);
+  display: grid;
+  grid-template-rows: 90% 10%;
+  overflow: hidden;
+  padding: 0.5rem 0.5rem 0rem;
+}
+
+/* !: Contenedor de la imagen IMG */
+.head .contimg .img {
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  background-image: url(../img/botas.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35%;
+}
+
+/* !: Contenedor de la Lista de los items */
+.head .list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 0.3rem;
+  font-size: 0.4rem;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* * Items */
+.head .list .item {
+  transition: all 0.5s linear;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s linear;
+  }
+}
+/* * Item número 2 */
+.head .list .item:nth-child(2) {
+  color: var(--white);
+}
+
 /* todo: MENU */
 .menu {
   grid-area: menu;
   width: 100%;
   background-color: var(--brown);
+  padding-inline: 3rem;
+  border-bottom: solid 0.2rem var(--orange);
+}
+
+/* ! Lista del contenido */
+.menu .list {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-size: 0.7rem;
+}
+
+/* * items */
+.menu .list .item {
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: solid 0.12rem var(--black);
+  padding: 0.5rem;
+  transition: all 0.5s linear;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--orange);
+    border: none;
+    transition: all 0.5s linear;
+  }
+}
+
+/* * Primer Hijo */
+.menu .list .item:first-child {
+  border: none;
+  background-color: var(--orange);
+}
+
+/* * Ultimo hijo */
+.menu .list .item:last-child {
+  border-right: solid 0.1rem var(--black);
+}
+
+/* * link */
+.menu .list .item .link {
+  text-decoration: none;
+  color: var(--white);
 }
 /* todo: ARTICLE */
 .article {
   grid-area: article;
   width: 100%;
   background-color: var(--grey-semiclaro);
+  display: grid;
+  grid-template-rows: 20% 80%;
+  grid-template-columns: 100%;
+  /* gap: .5rem; */
+  padding-inline: 3rem;
+}
+
+/* !: Contenedor titles */
+.article .titles {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: var(--orange);
+  font-weight: 300;
+}
+
+.article .titles .title {
+  margin: 0;
+  /* padding-top: .3rem; */
+}
+/* !: Contenedor da cards */
+.article .list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 15%) 20%;
+  justify-content: space-between;
+  list-style: none;
+}
+
+/* * item */
+.article .list .item {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 80% 20%;
+}
+
+/* * Contenedor de la imagen de las cards */
+.article .list .item .img {
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-color: var(--white);
+  border: solid 0.1rem var(--black);
+  transition: all 0.5s linear;
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.5s linear;
+  }
+}
+
+/* * Card1 */
+.article .list .item .img1 {
+  background-image: url(../img/casco3.png);
+}
+
+/* * Card2 */
+.article .list .item .img2 {
+  background-image: url(../img/casco1.png);
+}
+
+/* * Card3 */
+.article .list .item .img3 {
+  background-image: url(../img/casco2.png);
+}
+
+/* * Card4 */
+.article .list .item .img4 {
+  background-image: url(../img/casco4.png);
+}
+
+/* * Card5 */
+.article .list .item .img5 {
+  background-size: 100%;
+  background-color: black;
+  background-image: url(../img/logo.png);
+}
+
+/* * Titulos de las cards */
+.article .list .item .title {
+  margin: 0;
+  width: 100%;
+  font-size: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s linear;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--orange);
+    transition: all 0.5s linear;
+  }
 }
 /* todo: MAIN */
 .main {
@@ -117,18 +320,77 @@ body {
   width: 100%;
   background-color: var(--grey-claro);
   display: grid;
+  grid-template-rows: 10% 1fr 20%;
   grid-template-columns: 30% 70%;
-  grid-template-rows: 100%;
+  grid-template-areas:
+    "sidebar sidebar"
+    "card card"
+    "foot foot";
+  padding-inline: 3rem;
 }
 
-/* todo: MAIN SIDEBAR */
-.main .sidebar {
+/* todo: MAIN top */
+.main .top {
+  grid-area: sidebar;
   width: 100%;
-  border-right: var(--border);
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* * titulos */
+.main .top .title{
+  font-size: 0.7rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  color: var(--orange);
 }
 
 /* todo: MAIN CARDS */
 .main .cards {
+  grid-area: card;
+  width: 100%;
+  border-bottom: var(--border);
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+/* ! Sidebar */
+.main .cards .sidebar{
+    width: 100%;
+    overflow: hidden;
+}
+
+/* * Lista */
+.main .cards .sidebar .list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    font-size: .6rem;
+}
+
+/* item */
+.main .cards .sidebar .list .item{
+    width: 100%;
+    border: solid .1rem var(--black);
+    padding: .3rem;
+}
+
+/* Link */
+.main .cards .sidebar .list .item .link{
+    text-decoration: none;
+    color: black;
+}
+
+/* todo: MAIN FOOT */
+.main .foot {
+  grid-area: foot;
   width: 100%;
 }
 
